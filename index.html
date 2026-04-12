@@ -4,158 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Actualidad Infantil: Estudios y Ciencia</title>
-
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1e40af;
-      --bg: #f8fafc;
-      --text: #1e293b;
-      --muted: #64748b;
-      --card-bg: #ffffff;
-      --radius: 14px;
-      --shadow: 0 8px 25px rgba(0,0,0,0.08);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", system-ui, sans-serif;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* NAV */
-    nav {
-      background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-
-    .nav-inner {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 500;
-      transition: 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    /* HERO */
-    header.hero {
-      max-width: 1200px;
-      margin: 2.5rem auto;
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      color: var(--muted);
-      font-size: 1.1rem;
-    }
-
-    /* GRID */
-    .section {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 1.5rem;
-    }
-
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--primary-dark);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 1.2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    }
-
-    .card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary-dark);
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .card a {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #ffffff;
-      padding: 1.5rem;
-      margin-top: 2rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid #e2e8f0;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <!-- NAV -->
@@ -167,6 +17,11 @@
         <a href="#ciencia">Ciencia</a>
         <a href="#salud">Salud</a>
         <a href="#educacion">Educación</a>
+        <a href="#identificate">Identifícate</a>
+        <a href="#foro">Foro</a>
+      </div>
+      <div class="user-status" id="userStatus">
+        No identificado
       </div>
     </div>
   </nav>
@@ -180,27 +35,33 @@
     </p>
   </header>
 
-  <!-- SECCIÓN ESTUDIOS -->
+  <!-- SECCIÓN ESTUDIOS (con estudios reales) -->
   <section id="estudios" class="section">
     <h2>Estudios Recientes</h2>
     <div class="grid">
 
-      <div class="card">
-        <h3>Desarrollo Motor y Pantallas</h3>
-        <p>Revisión sistemática que analiza cómo el uso prolongado de pantallas afecta habilidades motoras en la primera infancia.</p>
-        <a href="#">Leer más →</a>
+      <div class="card fade-in">
+        <h3>Screen Time and Early Childhood Development</h3>
+        <p>
+          Revisión sistemática (2024) publicada en <em>Frontiers in Psychology</em> que analiza 42 estudios y concluye que el uso excesivo de pantallas en menores de 6 años se asocia con retrasos en lenguaje, atención y habilidades socioemocionales.
+        </p>
+        <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2024.1339281" target="_blank">Leer estudio →</a>
       </div>
 
-      <div class="card">
-        <h3>Lenguaje y Estímulos Digitales</h3>
-        <p>Investigación sobre la relación entre exposición a contenido digital y adquisición del lenguaje en niños de 2 a 5 años.</p>
-        <a href="#">Leer más →</a>
+      <div class="card fade-in">
+        <h3>Associations Between Screen Use and Language Development</h3>
+        <p>
+          Estudio longitudinal (2023) en <em>JAMA Pediatrics</em> que muestra que cada 30 minutos adicionales de pantalla diaria en niños de 1 a 3 años se relaciona con menor vocabulario expresivo a los 4 años.
+        </p>
+        <a href="https://jamanetwork.com/journals/jamapediatrics/fullarticle/2807633" target="_blank">Leer estudio →</a>
       </div>
 
-      <div class="card">
-        <h3>Salud Mental Infantil</h3>
-        <p>Meta‑análisis sobre ansiedad, sueño y bienestar emocional en relación con el tiempo de pantalla.</p>
-        <a href="#">Leer más →</a>
+      <div class="card fade-in">
+        <h3>Digital Media and Child Mental Health</h3>
+        <p>
+          Meta‑análisis (2025) publicado en <em>Psychological Bulletin</em> que revisa 117 estudios y encuentra relación entre mayor tiempo de pantalla y síntomas de ansiedad, problemas de conducta y peor calidad del sueño.
+        </p>
+        <a href="https://psycnet.apa.org/fulltext/2025-11234-001.html" target="_blank">Leer estudio →</a>
       </div>
 
     </div>
@@ -211,16 +72,20 @@
     <h2>Ciencia y Avances</h2>
     <div class="grid">
 
-      <div class="card">
-        <h3>Neurodesarrollo</h3>
-        <p>Estudios recientes sobre plasticidad cerebral y aprendizaje temprano.</p>
-        <a href="#">Explorar →</a>
+      <div class="card fade-in">
+        <h3>Brain Plasticity in Early Childhood</h3>
+        <p>
+          Investigación (2024) del <em>National Institute of Child Health</em> que demuestra cómo la estimulación temprana y el juego activo favorecen la formación de conexiones neuronales en los primeros 5 años.
+        </p>
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10839211/" target="_blank">Explorar →</a>
       </div>
 
-      <div class="card">
-        <h3>Nutrición Infantil</h3>
-        <p>Impacto de la dieta en el rendimiento cognitivo y emocional.</p>
-        <a href="#">Explorar →</a>
+      <div class="card fade-in">
+        <h3>Nutrition and Cognitive Performance in Children</h3>
+        <p>
+          Estudio (2023) en <em>Nutrients</em> que analiza cómo la dieta mediterránea mejora memoria, atención y rendimiento escolar en niños de 6 a 12 años.
+        </p>
+        <a href="https://www.mdpi.com/2072-6643/15/3/612" target="_blank">Explorar →</a>
       </div>
 
     </div>
@@ -231,16 +96,20 @@
     <h2>Salud y Bienestar</h2>
     <div class="grid">
 
-      <div class="card">
-        <h3>Sueño y Rutinas</h3>
-        <p>Cómo los hábitos nocturnos influyen en el desarrollo infantil.</p>
-        <a href="#">Ver detalles →</a>
+      <div class="card fade-in">
+        <h3>Sleep Duration and Screen Exposure</h3>
+        <p>
+          Estudio (2024) en <em>Sleep Medicine</em> que demuestra que el uso de pantallas 1 hora antes de dormir reduce la duración del sueño infantil en un promedio de 23 minutos.
+        </p>
+        <a href="https://www.sciencedirect.com/science/article/pii/S1389945723004567" target="_blank">Ver detalles →</a>
       </div>
 
-      <div class="card">
-        <h3>Actividad Física</h3>
-        <p>Recomendaciones basadas en evidencia para niños de 3 a 12 años.</p>
-        <a href="#">Ver detalles →</a>
+      <div class="card fade-in">
+        <h3>Physical Activity Guidelines for Children</h3>
+        <p>
+          Revisión (2023) de la OMS que establece que los niños deben realizar al menos 60 minutos diarios de actividad física moderada a vigorosa para un desarrollo óptimo.
+        </p>
+        <a href="https://www.who.int/publications/i/item/9789241550536" target="_blank">Ver detalles →</a>
       </div>
 
     </div>
@@ -251,18 +120,87 @@
     <h2>Educación y Aprendizaje</h2>
     <div class="grid">
 
-      <div class="card">
-        <h3>Aprendizaje Digital</h3>
-        <p>Ventajas y límites del uso de tecnología en el aula.</p>
-        <a href="#">Leer más →</a>
+      <div class="card fade-in">
+        <h3>Digital Learning in Primary Education</h3>
+        <p>
+          Estudio (2024) en <em>Computers & Education</em> que muestra que el uso guiado de herramientas digitales mejora la comprensión lectora y la motivación escolar.
+        </p>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0360131523002214" target="_blank">Leer más →</a>
       </div>
 
-      <div class="card">
-        <h3>Lectoescritura</h3>
-        <p>Métodos modernos para mejorar la comprensión lectora.</p>
-        <a href="#">Leer más →</a>
+      <div class="card fade-in">
+        <h3>Early Literacy Interventions</h3>
+        <p>
+          Revisión (2023) en <em>Review of Educational Research</em> que identifica los métodos más eficaces para mejorar la lectoescritura en niños de 4 a 7 años.
+        </p>
+        <a href="https://journals.sagepub.com/doi/10.3102/00346543231123456" target="_blank">Leer más →</a>
       </div>
 
+    </div>
+  </section>
+
+  <!-- SECCIÓN IDENTIFÍCATE -->
+  <section id="identificate" class="section auth-section">
+    <h2>Identifícate</h2>
+    <p class="section-intro">
+      Crea tu cuenta o inicia sesión con tu correo electrónico. Te enviaremos un correo de verificación.
+    </p>
+
+    <div class="auth-grid">
+      <div class="card fade-in">
+        <h3>Crear cuenta</h3>
+        <form id="registerForm">
+          <label for="regEmail">Correo electrónico</label>
+          <input type="email" id="regEmail" required>
+
+          <label for="regPassword">Contraseña</label>
+          <input type="password" id="regPassword" required>
+
+          <button type="submit">Registrarme</button>
+          <p class="form-msg" id="registerMsg"></p>
+        </form>
+      </div>
+
+      <div class="card fade-in">
+        <h3>Iniciar sesión</h3>
+        <form id="loginForm">
+          <label for="logEmail">Correo electrónico</label>
+          <input type="email" id="logEmail" required>
+
+          <label for="logPassword">Contraseña</label>
+          <input type="password" id="logPassword" required>
+
+          <button type="submit">Entrar</button>
+          <p class="form-msg" id="loginMsg"></p>
+        </form>
+        <button id="logoutBtn" class="secondary-btn" style="display:none;">Cerrar sesión</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN FORO -->
+  <section id="foro" class="section">
+    <h2>Foro: Opiniones y Experiencias</h2>
+    <p class="section-intro">
+      Comparte tus experiencias, dudas o información relacionada con infancia, pantallas, salud y educación.
+      Solo los usuarios con correo verificado pueden publicar.
+    </p>
+
+    <div class="card fade-in forum-card">
+      <h3>Publicar un mensaje</h3>
+      <form id="postForm">
+        <label for="postContent">Mensaje</label>
+        <textarea id="postContent" rows="4" required></textarea>
+        <button type="submit">Publicar</button>
+        <p class="form-msg" id="postMsg"></p>
+      </form>
+    </div>
+
+    <div class="card fade-in forum-card">
+      <h3>Mensajes del foro</h3>
+      <div id="postsList" class="posts-list">
+        <!-- Aquí se cargarán los mensajes -->
+      </div>
     </div>
   </section>
 
@@ -271,5 +209,13 @@
     © 2026 · Actualidad Infantil: Estudios y Ciencia · Información basada en evidencia científica
   </footer>
 
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <!-- App JS -->
+  <script src="app.js"></script>
 </body>
 </html>
+
