@@ -5,177 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peques HOY - Estudios Científicos</title>
     <style>
-        /* 1. PALETA DE COLORES PASTEL Y ESTILO GENERAL */
-        :root {
-            --bg-color: #fdfbf7; /* Crema suave */
-            --primary-text: #4a4e69;
-            --accent-pink: #f2e9e4;
-            --accent-blue: #d8e2dc;
-            --accent-yellow: #fefae0;
-            --card-bg: #ffffff;
-        }
+        /* ESTILOS (Misma paleta pastel) */
+        :root { --bg-color: #fdfbf7; --primary-text: #4a4e69; --accent-blue: #d8e2dc; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); color: var(--primary-text); margin: 0; padding: 0; line-height: 1.6; }
+        
+        /* HEADER */
+        header { background-color: #fff; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .navbar { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #6c757d; text-transform: uppercase; letter-spacing: 2px; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--primary-text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        /* HEADER Y MENÚ */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #6c757d; /* Gris elegante */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .nav-menu ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Menú Desplegable Animado */
-        .dropdown {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            z-index: 1;
-            border-radius: 8px;
-            top: 100%;
-            left: 0;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease; /* Animación suave */
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-            opacity: 1;
-            transform: translateY(5px); /* Efecto de deslizamiento al abrir */
-        }
-
-        .dropdown-content a {
-            color: var(--primary-text);
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-content a:hover {
-            background-color: var(--accent-blue); /* Color pastel al pasar el ratón */
-        }
-
-        /* CONTENIDO PRINCIPAL */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        h1.section-title {
-            text-align: center;
-            color: #6c757d;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
+        /* CONTENIDO */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        h1.section-title { text-align: center; color: #6c757d; font-weight: 300; margin-bottom: 40px; }
 
         /* GRID DE TARJETAS */
-        .studies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        .studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-        /* 2. ESTILO DE LAS TARJETAS (CARDS) */
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto elástico */
-            border-left: 5px solid var(--accent-blue);
-        }
+        .card { background-color: #fff; border-radius: 15px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.04); transition: all 0.4s ease; border-left: 5px solid var(--accent-blue); }
+        .card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        
+        .card h3 { margin-top: 0; color: #4a4e69; font-size: 1.2rem; margin-bottom: 15px; }
+        .card p { font-size: 0.95rem; color: #8d99ae; margin-bottom: 20px; line-height: 1.5; }
+        
+        .btn-ver { display: inline-block; text-decoration: none; background-color: var(--accent-blue); color: #4a4e69; padding: 8px 20px; border-radius: 25px; font-size: 0.9rem; transition: background 0.3s; }
+        .btn-ver:hover { background-color: #c1d2cd; }
 
-        /* Interactividad: Hover */
-        .card:hover {
-            transform: translateY(-10px) scale(1.02); /* Se acerca y crece un poco */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-left-color: #a8dadc;
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: #4a4e69;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #8d99ae;
-            margin-bottom: 20px;
-            /* Limitar a 3 líneas visualmente */
-            display: -webkit-box;
-            -webkit-line-clamp: 3; 
-            line-height: 1.5;
-        }
-
-        .btn-ver {
-            display: inline-block;
-            text-decoration: none;
-            background-color: var(--accent-pink);
-            color: #4a4e69;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-
-        .btn-ver:hover {
-            background-color: #dfe6e9;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            margin-top: 50px;
-            color: #8d99ae;
-            font-size: 0.8rem;
-        }
-
+        /* CARGANDO */
+        #loader { text-align: center; margin-top: 50px; color: #8d99ae; font-style: italic; display: none; }
     </style>
 </head>
 <body>
@@ -183,90 +39,66 @@
     <header>
         <div class="navbar">
             <div class="logo">Peques HOY</div>
-            <nav>
-                <!-- 3. MENÚ DESPLEGABLE ANIMADO -->
-                <ul>
-                    <li><a href="#inicio" style="text-decoration:none; color:inherit;">Inicio</a></li>
-                    
-                    <li class="dropdown">
-                        <span>Salud y Desarrollo ▼</span>
-                        <div class="dropdown-content">
-                            <a href="#">Nutrición Infantil</a>
-                            <a href="#">Sueño y Descanso</a>
-                            <a href="#">Salud Mental</a>
-                        </div>
-                    </li>
-
-                    <li class="dropdown">
-                        <span>Educación ▼</span>
-                        <div class="dropdown-content">
-                            <a href="#">Lectura Temprana</a>
-                            <a href="#">Tecnología y Pantallas</a>
-                            <a href="#">Aprendizaje Activo</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Menú simplificado -->
+            <nav><a href="#" style="text-decoration:none; color:inherit;">Inicio</a></nav>
         </div>
     </header>
 
     <main class="container" id="inicio">
-        <h1 class="section-title">Últimos Estudios Científicos</h1>
-
-        <!-- 2. TARJETAS DE ESTUDIOS -->
-        <div class="studies-grid">
-            
-            <!-- Estudio Real 1: Sueño -->
-            <article class="card" style="border-left-color: #f8edeb;">
-                <h3>Efectos de la luz azul en el sueño infantil</h3>
-                <p>Un estudio reciente publicado en 'Sleep Health' demuestra que la exposición a pantallas antes de dormir reduce significativamente los niveles de melatonina en niños, afectando su calidad de descanso y estado de ánimo al día siguiente.</p>
-                <a href="#" class="btn-ver">Ver Estudio</a>
-            </article>
-
-            <!-- Estudio Real 2: Nutrición -->
-            <article class="card" style="border-left-color: #d8e2dc;">
-                <h3>Importancia de la fibra en la dieta escolar</h3>
-                <p>Investigaciones de la Universidad de Harvard indican que una ingesta adecuada de fibra mejora no solo la digestión, sino también la concentración cognitiva y el rendimiento académico en niños de primaria.</p>
-                <a href="#" class="btn-ver">Ver Estudio</a>
-            </article>
-
-            <!-- Estudio Real 3: Pantallas -->
-            <article class="card" style="border-left-color: #fefae0;">
-                <h3>Límites de tiempo frente a pantallas (OMS)</h3>
-                <p>Análisis globales sugieren que más de 2 horas diarias de pantalla en menores de 5 años se correlacionan con retrasos leves en el desarrollo del lenguaje y habilidades motoras finas.</p>
-                <a href="#" class="btn-ver">Ver Estudio</a>
-            </article>
-
-             <!-- Estudio Real 4: Emociones -->
-             <article class="card" style="border-left-color: #e9edc9;">
-                <h3>Juego libre y regulación emocional</h3>
-                <p>Estudios de psicología evolutiva confirman que el juego no estructurado permite a los niños gestionar mejor sus emociones, reduciendo la ansiedad y fomentando la creatividad social.</p>
-                <a href="#" class="btn-ver">Ver Estudio</a>
-            </article>
-
-        </div>
+        <h1 class="section-title">Últimos Estudios Científicos (Actualizados)</h1>
+        
+        <!-- Aquí se inyectarán las tarjetas automáticamente -->
+        <div id="grid-container" class="studies-grid"></div>
+        <div id="loader">Buscando nuevos estudios en bases de datos...</div>
     </main>
 
-    <footer>
-        <p>&copy; 2023 Peques HOY - Ciencia para padres modernos.</p>
-    </footer>
+    <footer style="text-align:center; padding:40px; color:#8d99ae;">Peques HOY</footer>
 
-    <!-- 5. SCRIPT PARA BUSCAR NUEVOS ESTUDIOS (Simulación) -->
+    <!-- SCRIPT AUTOMÁTICO -->
     <script>
-        // Esta función simula la búsqueda automática de estudios
-        async function checkNewStudies() {
-            console.log("Buscando nuevos estudios...");
+        // URL del Feed RSS (ScienceDaily - Salud)
+        const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.sciencedaily.com/rss/health.xml';
+
+        async function fetchStudies() {
+            const loader = document.getElementById('loader');
+            const container = document.getElementById('grid-container');
             
-            // Aquí iría el código real para conectar con una API o base de datos
-            // Por ahora, simulamos que se ha encontrado uno nuevo al cargar
+            loader.style.display = 'block'; // Mostrar mensaje de carga
+
+            try {
+                const response = await fetch(rssUrl);
+                const data = await response.json();
+
+                if(data.status === "ok") {
+                    renderCards(data.items);
+                } else {
+                    container.innerHTML = "<p>Esperando datos...</p>";
+                }
+            } catch (error) {
+                console.error("Error al cargar estudios:", error);
+                container.innerHTML = "<p>Error de conexión con la base de datos.</p>";
+            } finally {
+                loader.style.display = 'none'; // Ocultar carga
+            }
+        }
+
+        function renderCards(items) {
+            const container = document.getElementById('grid-container');
             
-            setTimeout(() => {
-                alert("Sistema: Se han verificado los últimos 24h. No hay nuevos estudios urgentes.");
-            }, 1000);
+            items.slice(0, 6).forEach(item => { // Mostramos solo los últimos 6 para no saturar
+                const cardHTML = `
+                    <article class="card">
+                        <h3>${item.title}</h3>
+                        <p>${item.description.substring(0, 150)}...</p>
+                        <a href="${item.link}" target="_blank" class="btn-ver">Ver Estudio</a>
+                    </article>
+                `;
+                container.innerHTML += cardHTML;
+            });
         }
 
         // Ejecutar al cargar la página
-        window.onload = checkNewStudies;
+        window.onload = fetchStudies;
     </script>
 
 </body>
