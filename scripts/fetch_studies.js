@@ -362,6 +362,9 @@ async function main() {
     const fullStudy = {
       ...s,
       category,
+   
+      
+      
       title_es
     };
 
@@ -378,6 +381,10 @@ async function main() {
 
   console.log("index.html generado correctamente con secciones, filtros y traducciones.");
 }
+
+generateRobots();
+generateSitemap(allStudies);
+
 
 main().catch(err => {
   console.error("Error en fetch_studies.js:", err);
