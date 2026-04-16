@@ -1,105 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peques HOY - Estudios Científicos</title>
-    <style>
-        /* ESTILOS (Misma paleta pastel) */
-        :root { --bg-color: #fdfbf7; --primary-text: #4a4e69; --accent-blue: #d8e2dc; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); color: var(--primary-text); margin: 0; padding: 0; line-height: 1.6; }
-        
-        /* HEADER */
-        header { background-color: #fff; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .navbar { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.8rem; font-weight: bold; color: #6c757d; text-transform: uppercase; letter-spacing: 2px; }
-
-        /* CONTENIDO */
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        h1.section-title { text-align: center; color: #6c757d; font-weight: 300; margin-bottom: 40px; }
-
-        /* GRID DE TARJETAS */
-        .studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-        .card { background-color: #fff; border-radius: 15px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.04); transition: all 0.4s ease; border-left: 5px solid var(--accent-blue); }
-        .card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        
-        .card h3 { margin-top: 0; color: #4a4e69; font-size: 1.2rem; margin-bottom: 15px; }
-        .card p { font-size: 0.95rem; color: #8d99ae; margin-bottom: 20px; line-height: 1.5; }
-        
-        .btn-ver { display: inline-block; text-decoration: none; background-color: var(--accent-blue); color: #4a4e69; padding: 8px 20px; border-radius: 25px; font-size: 0.9rem; transition: background 0.3s; }
-        .btn-ver:hover { background-color: #c1d2cd; }
-
-        /* CARGANDO */
-        #loader { text-align: center; margin-top: 50px; color: #8d99ae; font-style: italic; display: none; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Actualidad Infantil: Estudios y Ciencia</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="navbar">
-            <div class="logo">Peques HOY</div>
-            <!-- Menú simplificado -->
-            <nav><a href="#" style="text-decoration:none; color:inherit;">Inicio</a></nav>
+  <header class="hero">
+    <h1>Actualidad Infantil: Estudios y Ciencia</h1>
+    <p>Actualizado automáticamente cada día a las 08:00.</p>
+  </header>
+
+  <section id="estudios" class="section">
+    <h2>Estudios Recientes</h2>
+    <div class="grid">
+      
+        <div class="card fade-in">
+          <h3>Prior-night sleep duration and the relationship to quality of life and educational context in Norwegian pre-adolescents.</h3>
+          <p>Año: 2026 Apr 14</p>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41981517/" target="_blank">Ver estudio →</a>
         </div>
-    </header>
-
-    <main class="container" id="inicio">
-        <h1 class="section-title">Últimos Estudios Científicos (Actualizados)</h1>
-        
-        <!-- Aquí se inyectarán las tarjetas automáticamente -->
-        <div id="grid-container" class="studies-grid"></div>
-        <div id="loader">Buscando nuevos estudios en bases de datos...</div>
-    </main>
-
-    <footer style="text-align:center; padding:40px; color:#8d99ae;">Peques HOY</footer>
-
-    <!-- SCRIPT AUTOMÁTICO -->
-    <script>
-        // URL del Feed RSS (ScienceDaily - Salud)
-        const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.sciencedaily.com/rss/health.xml';
-
-        async function fetchStudies() {
-            const loader = document.getElementById('loader');
-            const container = document.getElementById('grid-container');
-            
-            loader.style.display = 'block'; // Mostrar mensaje de carga
-
-            try {
-                const response = await fetch(rssUrl);
-                const data = await response.json();
-
-                if(data.status === "ok") {
-                    renderCards(data.items);
-                } else {
-                    container.innerHTML = "<p>Esperando datos...</p>";
-                }
-            } catch (error) {
-                console.error("Error al cargar estudios:", error);
-                container.innerHTML = "<p>Error de conexión con la base de datos.</p>";
-            } finally {
-                loader.style.display = 'none'; // Ocultar carga
-            }
-        }
-
-        function renderCards(items) {
-            const container = document.getElementById('grid-container');
-            
-            items.slice(0, 6).forEach(item => { // Mostramos solo los últimos 6 para no saturar
-                const cardHTML = `
-                    <article class="card">
-                        <h3>${item.title}</h3>
-                        <p>${item.description.substring(0, 150)}...</p>
-                        <a href="${item.link}" target="_blank" class="btn-ver">Ver Estudio</a>
-                    </article>
-                `;
-                container.innerHTML += cardHTML;
-            });
-        }
-
-        // Ejecutar al cargar la página
-        window.onload = fetchStudies;
-    </script>
+      
+        <div class="card fade-in">
+          <h3>Development of artificially intelligent tool for analysis and prediction of myopia progression among school-going children.</h3>
+          <p>Año: 2026 Apr 14</p>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41981408/" target="_blank">Ver estudio →</a>
+        </div>
+      
+        <div class="card fade-in">
+          <h3>The Mediating Role of Screen-Based Sedentary Behaviors in the Association of Parental Educational Level and BMI with Preschoolers' Ultra-Processed Food Consumption.</h3>
+          <p>Año: 2026 Mar 27</p>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41978119/" target="_blank">Ver estudio →</a>
+        </div>
+      
+        <div class="card fade-in">
+          <h3>Prevalence and risk factors of overweight and obesity among children and adolescents in Hangzhou: a cross-sectional study.</h3>
+          <p>Año: 2026 Apr 13</p>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41974565/" target="_blank">Ver estudio →</a>
+        </div>
+      
+        <div class="card fade-in">
+          <h3>Parental Perceived Causal Networks of Problematic Screen Time in Adolescents: The Centrality of Passive Scrolling.</h3>
+          <p>Año: 2026 Jan</p>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/41969313/" target="_blank">Ver estudio →</a>
+        </div>
+      
+    </div>
+  </section>
 
 </body>
 </html>
