@@ -1,8 +1,6 @@
-// scripts/fetch_studies.js
-import fetch from "node-fetch";
-import fs from "fs";
+const fetch = require("node-fetch");
+const fs = require("fs");
 
-// Función para obtener estudios reales desde PubMed
 async function getStudies() {
   const url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=child+development+screen+time&retmax=5&retmode=json";
 
@@ -27,7 +25,6 @@ async function getStudies() {
   return studies;
 }
 
-// Generar HTML dinámico
 function generateHTML(studies) {
   return `
 <!DOCTYPE html>
@@ -38,20 +35,6 @@ function generateHTML(studies) {
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <nav>
-    <div class="nav-inner">
-      <div class="brand">Actualidad Infantil</div>
-      <div class="nav-links">
-        <a href="#estudios">Estudios</a>
-        <a href="#ciencia">Ciencia</a>
-        <a href="#salud">Salud</a>
-        <a href="#educacion">Educación</a>
-        <a href="#identificate">Identifícate</a>
-        <a href="#foro">Foro</a>
-      </div>
-    </div>
-  </nav>
 
   <header class="hero">
     <h1>Actualidad Infantil: Estudios y Ciencia</h1>
@@ -71,16 +54,11 @@ function generateHTML(studies) {
     </div>
   </section>
 
-  <footer>
-    © 2026 · Actualidad Infantil · Actualizado automáticamente
-  </footer>
-
 </body>
 </html>
 `;
 }
 
-// Ejecutar
 getStudies().then(studies => {
   const html = generateHTML(studies);
   fs.writeFileSync("index.html", html);
