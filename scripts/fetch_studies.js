@@ -2,6 +2,37 @@ const fs = require("fs");
 const path = require("path");
 const fetch = require("node-fetch");
 
+<?xml function generateRobots() {
+  const content = `
+User-agent: *
+Allow: /
+Sitemap: https://alevi-9.github.io/Web-peques/sitemap.xml
+  `.trim();
+
+  fs.writeFileSync(path.join(ROOT_PATH, "robots.txt"), content, "utf8");
+  console.log("robots.txt generado.");
+}
+
+function generateSitemap(studies) {
+  const urls = [
+    `<url><loc>https://alevi-9.github.io/Web-peques/</loc><priority>1.0</priority></url>`
+  ];
+
+  // Si en el futuro añades páginas como /favoritos, /categorias, etc., las añadimos aquí
+
+  const xml = `
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.join("\n")}
+</urlset>
+  `.trim();
+
+  fs.writeFileSync(path.join(ROOT_PATH, "sitemap.xml"), xml, "utf8");
+  console.log("sitemap.xml generado.");
+}
+
+
+
 const DATA_PATH = path.join(__dirname, "..", "data", "studies.json");
 const OUTPUT_HTML = path.join(__dirname, "..", "index.html");
 
@@ -352,3 +383,4 @@ main().catch(err => {
   console.error("Error en fetch_studies.js:", err);
   process.exit(1);
 });
+.
