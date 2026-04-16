@@ -385,6 +385,35 @@ async function main() {
 generateRobots();
 generateSitemap(allStudies);
 
+function generateSchema(studies) {
+  const articles = studies.map(s => ({
+    "@type": "ScholarlyArticle",
+    "headline": s.title_es || s.title,
+    "alternateName": s.title,
+    "description": s.abstract_es || s.abstract || "",
+    "inLanguage": s.lang === "eng" ? "en" : "es",
+    "datePublished": s.year || "",
+    "about": s.category,
+    "url": s.link,
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Actualidad Infantil"
+    }
+  }));
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Actualidad Infantil",
+    "description": "Resumen diario de estudios científicos sobre infancia, desarrollo, pantallas, salud mental, sueño y nutrición.",
+    "url": "https://alevi-9.github.io/Web-peques/",
+    "hasPart": articles
+  };
+
+  return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
+}
+
 
 main().catch(err => {
   console.error("Error en fetch_studies.js:", err);
